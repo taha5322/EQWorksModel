@@ -1,0 +1,18 @@
+4A model Explanation)
+
+In order to develop the model, I hypothesized two factors that would contribute to the “popularity score” of a geographic point of interest. 
+
+1.) The first one was the density of a geographic point of interest which I calculated as the “total number of requests / area of the circle formed by POI”. This had a positive correlation with the popularity score as a higher number of requests per a unit area should indicate the POI is more popular
+
+2.) The second trait was the mean of the distance between the Point of interest and all of it’s requests. This had a negative correlation with the popularity score as a larger average distance between a request and its geographic point of interest indicates that the point of interest’s coordinates are unpopular. In turn, this data could be reanalyzed and optimized to give an optimal point of interest that decreases the overall average distance needed.
+
+3.) The third trait was the total number of requests that were within a POI irregardless of density or any other characteristic 
+
+The model was created as a combination of these three factors but they weren’t weighted evenly. You may notice that in the for loop of the second last cell where the popularities are calculated, the average distance attribute is multiplied by 1.5, the density attribute is multiplied by 6.3 while the total_requests attribute was multiplied by 12.2. Even Though this gives a popularity score between -10 and 10 when you sum them, a question may arise about why the characteristics aren’t just multiplied by 6.66667. The reason for this is I placed more weight on the “total_requests” and “density” attributes and less on the “distance”. 
+
+This is because, theoretically, a POI with one request which is closer would be deemed “more popular” than one that has a lot more requests but has a higher average distance to its requests. That is why I prioritized the total requests the most, then the density score, and then the distance score. 
+
+The percentage weighting of these three attributes in relation to their contribution to the popularity score is as follows:
+Total_Requests: 61%
+Density_Score: 31.5%
+Distance_Score: 7.5%
